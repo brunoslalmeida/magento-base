@@ -1,0 +1,43 @@
+{
+  "name": "agente-api-build",
+  "version": "0.0.0-development",
+  "description": "",
+  "scripts": {
+    "semantic-release": "semantic-release"
+  },
+  "keywords": [],
+  "author": "Bruno Almeida <brunoslalmeida@gmail.com>",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brunoslalmeida/magento-base.git"
+  },
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator", [
+        "@semantic-release/npm",
+        {
+          "npmPublish": false,
+          "tarballDir": "dist"
+        }
+      ],
+      [
+        "@semantic-release/github",
+        {
+          "assets": "dist/*.tgz"
+        }
+      ]
+    ],
+    "branches": [
+      "master",
+      "developer"
+    ]
+  },
+  "devDependencies": {
+    "semantic-release": "^17.1.1"
+  }
+}
