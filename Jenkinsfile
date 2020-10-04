@@ -15,7 +15,7 @@ pipeline {
         } 
       }
       steps {
-        withCredentials([string(credentialsId: 'petala-gh-token', variable: 'TOKEN')]) {
+        withCredentials([string(credentialsId: 'github-cabrindes-semantic', variable: 'TOKEN')]) {
           sh 'npm install'               
           sh "GH_TOKEN=${TOKEN} node_modules/semantic-release/bin/semantic-release.js"
         }
