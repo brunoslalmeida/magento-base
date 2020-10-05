@@ -113,6 +113,3 @@ RUN chmod 777 -Rf /var/www /var/www/.* \
 	&& chsh -s /bin/bash www-data\
 	&& a2enmod rewrite \
 	&& a2enmod headers
-
-VOLUME /var/www/html
-WORKDIR /var/www/html
