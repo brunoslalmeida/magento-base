@@ -14,12 +14,12 @@ return array(
             'redis' =>
                 array(
 
-                    'host' => 'redis-session',
+                    'host' => 'REDIS_HOST',
                     'port' => '6379',
-                    'password' => '',
+                    'password' => 'REDIS_PASSWORD',
                     'timeout' => '2.5',
                     'persistent_identifier' => '',
-                    'database' => '2',
+                    'database' => 'REDIS_DATABASE_SESSION',
                     'compression_threshold' => '2048',
                     'compression_library' => 'gzip',
                     'log_level' => '1',
@@ -88,11 +88,11 @@ return array(
                             'backend' => 'Cm_Cache_Backend_Redis',
                             'backend_options' =>
                                 array(
-                                    'server' => 'redis',
+                                    'server' => 'REDIS_HOST',
                                     'port' => '6379',
                                     'persistent' => '',
-                                    'database' => '0',
-                                    'password' => '',
+                                    'database' => 'REDIS_DATABASE_DEFAULT',
+                                    'password' => 'REDIS_PASSWORD',
                                     'force_standalone' => '0',
                                     'connect_retries' => '1',
                                     'read_timeout' => '10',
@@ -109,11 +109,11 @@ return array(
                             'backend' => 'Cm_Cache_Backend_Redis',
                             'backend_options' =>
                                 array(
-                                    'server' => 'redis',
+                                    'server' => 'REDIS_HOST',
                                     'port' => '6379',
                                     'persistent' => '',
-                                    'database' => '1',
-                                    'password' => '',
+                                    'database' => 'REDIS_DATABASE_PAGE_CACHE',
+                                    'password' => 'REDIS_PASSWORD',
                                     'force_standalone' => '0',
                                     'connect_retries' => '1',
                                     'lifetimelimit' => '57600',
