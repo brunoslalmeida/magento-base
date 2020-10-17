@@ -1,4 +1,4 @@
-FROM php:7.1-apache
+FROM php:7-apache
 
 ENV XDEBUG_PORT 9000
 
