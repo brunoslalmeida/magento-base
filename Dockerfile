@@ -2,7 +2,6 @@ FROM php:7-apache
 
 ENV XDEBUG_PORT 9000
 
-USER root
 # Install System Dependencies
 RUN apt-get update \
 	&& DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
@@ -72,9 +71,6 @@ RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - \
 RUN	curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer
 RUN composer global require hirak/prestissimo
 
-USER www-data
-RUN mkdir -p ~/.composer
-
 # Install Code Sniffer
 RUN git clone https://github.com/magento/marketplace-eqp.git ~/.composer/vendor/magento/marketplace-eqp
 RUN cd ~/.composer/vendor/magento/marketplace-eqp && composer install
@@ -82,7 +78,6 @@ RUN ln -s ~/.composer/vendor/magento/marketplace-eqp/vendor/bin/phpcs /usr/local
 
 ENV PATH="/var/www/.composer/vendor/bin/:${PATH}"
 
-USER root
 # Install XDebug
 RUN yes | pecl install xdebug && \
 	 echo "zend_extension=$(find /usr/local/lib/php/extensions/ -name xdebug.so)" > /usr/local/etc/php/conf.d/xdebug.iniOLD
