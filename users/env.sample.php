@@ -1,8 +1,5 @@
 <?php
 return array(
-  'crypt' => array(
-    'key' => 'MAGENTO_CIPHER_KEY',
-  ),
   'session' => array(
     'save' => 'redis',
     'redis' => array(
