@@ -94,12 +94,10 @@ RUN wget https://files.magerun.net/n98-magerun2.phar \
 
 # Configuring system
 ADD ./config/php.ini /usr/local/etc/php/php.ini
-ADD ./config/magento.conf /etc/apache2/sites-available/magento.conf
 ADD ./config/custom-xdebug.ini /usr/local/etc/php/conf.d/custom-xdebug.ini
 COPY ./bin/* /usr/local/bin/
 COPY ./users/* /var/www/
 RUN chmod +x /usr/local/bin/*
-RUN ln -s /etc/apache2/sites-available/magento.conf /etc/apache2/sites-enabled/magento.conf
 
 RUN curl -o /etc/bash_completion.d/m2install-bash-completion https://raw.githubusercontent.com/yvoronoy/m2install/master/m2install-bash-completion
 RUN curl -o /etc/bash_completion.d/n98-magerun2.phar.bash https://raw.githubusercontent.com/netz98/n98-magerun2/master/res/autocompletion/bash/n98-magerun2.phar.bash
